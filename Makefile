@@ -28,6 +28,11 @@ format:
 	${RUN} black "${SRC_DIR}"
 
 
+.PHONY: createsuperuser
+createsuperuser:
+	${MANAGE} createsuperuser
+
+
 .PHONY: run
 run:
 	$(call log, starting local server)
