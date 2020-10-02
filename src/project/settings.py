@@ -43,7 +43,7 @@ INSTALLED_APPS_ORDERED = {
     220: "allauth.socialaccount",
     230: "dj_rest_auth",
     240: "dj_rest_auth.registration",
-    250: 'django_filters',
+    250: "django_filters",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.tasks.apps.TasksConfig",
@@ -134,9 +134,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }
 
 CORS_ORIGIN_WHITELIST = (
