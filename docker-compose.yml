@@ -1,0 +1,33 @@
+version: "3.3"
+services:
+  task-manager-web:
+    image: task-manager-web
+    container_name: task-manager-web
+    build: ./
+    ports:
+      - "8000:80"
+    depends_on:
+      - task-manager-db
+    environment:
+      ENV_FOR_DYNACONF: docker
+      PORT: 80
+  task-manager-db:
+    container_name: task-manager-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: anastasiyataranava
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: tasks
+    ports:
+      - "5433:5432"
+  task-manager-dba:
+    container_name: task-manager-dba
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

@@ -1,12 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from apps.onboarding.apps import OnboardingConfig
-from apps.onboarding.views.user_details import UserDetail
-from apps.onboarding.views.user_list import UserList
+from apps.onboarding.views.user import UserList
 
 app_name = OnboardingConfig.label
 
+router = DefaultRouter()
+router.register("user", UserList, "users")
+
 urlpatterns = [
-    path("users/", UserList.as_view()),
-    path("users/<int:pk>/", UserDetail.as_view()),
+    path("", include(router.urls)),
 ]

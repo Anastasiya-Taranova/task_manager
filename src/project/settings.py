@@ -43,13 +43,13 @@ INSTALLED_APPS_ORDERED = {
     220: "allauth.socialaccount",
     230: "dj_rest_auth",
     240: "dj_rest_auth.registration",
+    250: 'django_filters',
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.tasks.apps.TasksConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
-
 
 SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
@@ -61,7 +61,6 @@ SWAGGER_SETTINGS = {
     },
     "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator",
 }
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -135,9 +134,14 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
 }
 
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000",
     "http://localhost:8000",
 )
+
+ACCOUNT_EMAIL_VERIFICATION = "none"

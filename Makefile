@@ -29,7 +29,7 @@ format:
 
 
 .PHONY: run
-run: static
+run:
 	$(call log, starting local server)
 	${MANAGE} runserver
 
