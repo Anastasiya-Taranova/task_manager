@@ -34,9 +34,7 @@ INSTALLED_APPS_ORDERED = {
     40: "django.contrib.messages",
     50: "django.contrib.staticfiles",
     70: "django.contrib.sites",
-
     90: "corsheaders",
-
     100: "rest_framework",
     101: "rest_framework.authtoken",
     200: "allauth",
