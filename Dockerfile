@@ -33,7 +33,9 @@ RUN pipenv install --deploy
 
 COPY ./ ./
 
+RUN make static
+
 EXPOSE 80
 
-ENTRYPOINT ["./run-gunicorn.sh"]
+ENTRYPOINT ["pipenv", "run", "./run-gunicorn.sh"]
 

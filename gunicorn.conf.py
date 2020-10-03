@@ -24,5 +24,5 @@ max_requests_jitter = 20
 pythonpath = _src_dir.as_posix()
 reload = _reload
 timeout = 30
-worker_class = "uvicorn.workers.UvicornWorker"
+# worker_class = "uvicorn.workers.UvicornWorker"
 workers = _workers
