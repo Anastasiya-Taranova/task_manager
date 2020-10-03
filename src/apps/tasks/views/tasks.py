@@ -13,7 +13,11 @@ class Review(ModelViewSet):
     filterset_fields = ["status", "finished_day"]
 
     def get_queryset(self):
-        qs = Tasks.objects.filter(author=self.request.user)
+        author_id = -1
+        if not self.request.user.is_anonymous:
+            author_id = self.request.user.pk
+
+        qs = Tasks.objects.filter(author_id=author_id)
         return qs
 
     def perform_create(self, serializer):

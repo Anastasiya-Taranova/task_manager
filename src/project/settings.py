@@ -33,17 +33,19 @@ INSTALLED_APPS_ORDERED = {
     30: "django.contrib.sessions",
     40: "django.contrib.messages",
     50: "django.contrib.staticfiles",
-    60: "rest_framework",
     70: "django.contrib.sites",
-    80: "drf_yasg",
+
     90: "corsheaders",
-    100: "rest_framework.authtoken",
+
+    100: "rest_framework",
+    101: "rest_framework.authtoken",
     200: "allauth",
     210: "allauth.account",
     220: "allauth.socialaccount",
     230: "dj_rest_auth",
     240: "dj_rest_auth.registration",
     250: "django_filters",
+    300: "drf_yasg",
     # --- my applications ---
     1000: "apps.onboarding.apps.OnboardingConfig",
     2000: "apps.tasks.apps.TasksConfig",
@@ -59,7 +61,7 @@ SWAGGER_SETTINGS = {
             "in": "header",
         }
     },
-    "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator",
+    # "DEFAULT_GENERATOR_CLASS": "rest_framework.schemas.generators.BaseSchemaGenerator",
 }
 
 MIDDLEWARE = [
